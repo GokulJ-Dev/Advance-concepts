@@ -1,3 +1,27 @@
-#children{
+.children{
     color: red;
+}
+
+#title-text{
+    color:blue
+}
+
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+}
+
+.search {
+    height: 40px;
+    width: 400px;
+    margin-left: 10px;
+    padding-left: 10px;
+    border-radius: 20px;
+    border: 1px blue solid;
 }
