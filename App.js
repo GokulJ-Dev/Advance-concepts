@@ -1,72 +1,70 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
-
-/* 
-<div id="parent">
-  <div id="children">
-    <h1> Hello </h1>
-    <h2> Gokul </h2>
-  </div>
-</div>
-*/
-
-const headingReact = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement("div", { id: "children" }, [
-    React.createElement("h1", {}, "Hello!"),
-    React.createElement("h2", {}, "Gokul"),
-  ])
-);
-
-const Title = () => <h3 id="title-text">Welcome to namaste react repo</h3>;
-
-// Create a header component which have title component inside it
+import { restaurantsInPerundurai } from "./mockData";
 
 const Header = () => {
-  let name = "Gokul";
   return (
-    <div>
-      <h1>Hello {name}</h1>
-      {/* Component composition */}
-      <Title />
+    <div className="header">
+      <div className="logo-container">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQQ9W98Mg2_uVUCWTJY_WkT0adfjOEXCvHRQ&usqp=CAU"
+          className="logo-image"
+        />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+          <li>Cart</li>
+        </ul>
+      </div>
     </div>
   );
 };
 
-// Create header with logo, input, user icon
-
-const SearchBox = () => {
-  const [name, setName] = useState("");
+const RestroCard = ({ restaurantDetails }) => {
+  const { data } = restaurantDetails;
   return (
-    <input
-      type="text"
-      className="search"
-      name="Search"
-      placeholder="Search"
-      value={name}
-      onChange={(event) => {
-        console.log(event.target.value);
-        setName(event.target.value);
-      }}
-    />
+    <div className="restro-card">
+      <img
+        className="restro-image"
+        src={`https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/${data?.cloudinaryImageId}`}
+      />
+      <div className="restro-details">
+        <p className="main-details">{data?.name}</p>
+        <p className="main-details">
+          {data?.avgRatingString} * {`${data?.sla?.deliveryTime} mins`}
+        </p>
+        <p className="sub-details">{data?.cuisines?.join(",")}</p>
+        <p className="sub-details">{data?.locality}</p>
+      </div>
+    </div>
   );
 };
 
-const AdvanceHeader = () => {
+const Body = () => {
   return (
-    <div className="header">
-      <img
-        className="logo"
-        src="http://www.shadowsphotography.co/wp-content/uploads/2017/12/photography-01-800x400.jpg"
-      />
-      {/* Component composition */}
-      <SearchBox />
-      {10 + 20}
+    <div className="body">
+      <h2>Search Box Will come here</h2>
+      <div className="restro-card-container">
+        {restaurantsInPerundurai.map((res) => (
+          <RestroCard key={res?.data?.id} restaurantDetails={res} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body />
     </div>
   );
 };
 
 const rootReact = ReactDOM.createRoot(document.getElementById("root"));
 
-rootReact.render(<AdvanceHeader />);
+rootReact.render(<App />);
