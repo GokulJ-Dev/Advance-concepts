@@ -1,17 +1,17 @@
 import { IMAGE_CDN } from "../utils/constants";
 
 const RestroCard = ({ restaurantDetails }) => {
-  const { data } = restaurantDetails;
+  const { info } = restaurantDetails;
   return (
     <div className="restro-card">
-      <img className="restro-image" src={IMAGE_CDN + data?.cloudinaryImageId} />
+      <img className="restro-image" src={IMAGE_CDN + info?.cloudinaryImageId} />
       <div className="restro-details">
-        <p className="main-details">{data?.name}</p>
+        <p className="main-details">{info?.name}</p>
         <p className="main-details">
-          {data?.avgRatingString} * {`${data?.sla?.deliveryTime} mins`}
+          {info?.avgRating} * {`${info?.sla?.deliveryTime} mins`}
         </p>
-        <p className="sub-details">{data?.cuisines?.join(",")}</p>
-        <p className="sub-details">{data?.locality}</p>
+        <p className="sub-details">{info?.cuisines?.join(",")}</p>
+        <p className="sub-details">{info?.areaName}</p>
       </div>
     </div>
   );
