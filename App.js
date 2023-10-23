@@ -4,7 +4,9 @@ import Header from "./src/components/Header";
 import Body from "./src/components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./src/components/About";
+import RestaurantDetails from "./src/components/RestaurantDetails";
 import Error from "./src/components/Error";
+import LoginForm from "./src/components/LoginForm";
 
 const App = () => {
   return (
@@ -27,6 +29,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/restaurant/:rId",
+        element: <RestaurantDetails />,
+      },
+      {
+        path: "/login",
+        element: <LoginForm />,
       },
     ],
     errorElement: <Error />,

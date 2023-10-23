@@ -13,10 +13,14 @@ const Header = () => {
         <ul>
           <li>
             {" "}
-            <Link to="/">Home</Link>
+            <Link className="link-router-style" to="/">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link className="link-router-style" to="/about">
+              About
+            </Link>
           </li>
           <li>Contact</li>
           <li>Cart</li>

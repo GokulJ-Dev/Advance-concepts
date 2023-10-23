@@ -1,4 +1,4 @@
-# Advance-concepts
+# Advance-concepts:
 
 My coding practices and learning advance concepts.
 
@@ -15,7 +15,7 @@ My coding practices and learning advance concepts.
     ^ - caret - updates the packages to minor versions
     ~ - tilde - updates the packages to major versions
 
-# JSX
+# JSX:
 
     1) Markup + Logic
     2) Xml or html like syntax which also holds JS functionality
@@ -23,11 +23,11 @@ My coding practices and learning advance concepts.
     4) JSX -> ReactElement -> Object -> HTML elements (while render)
     5) JS operations are performed inside the curly braces
 
-# Parcel + Babel (transpiler)
+# Parcel + Babel (transpiler):
 
-    - Parcel bundler have babel which is a transpiler which converts JSX to JS which browser can undrestand.
+    - Parcel bundler have babel which is a transpiler which converts JSX to JS which browser can understand.
 
-# Components
+# Components:
 
     1) Class based components
     2) Functional Components - js function which return some peice of jsx from it.
@@ -35,6 +35,19 @@ My coding practices and learning advance concepts.
     RULES: Should start with Capital letter.
            root.render(<Component />)
 
-# Component Composition
+# Component Composition:
 
     Rendering one component inside the other component.
+
+# React Router DOM:
+
+    npm i "react-router-dom";
+    import {createRouter, RouterProvider, Outlet} from "react-router-dom";
+    import {Link} from "react-router-dom";
+    import {useRouteError} from "react-router-dom";
+    import {useParams} from "react-router-dom";
+
+    React everything is a component, so when using the <Link to="/">Home<Link> , in this case we can changing the component, the page will not reload fully like using <a href="/">Home</a>
+    1) Never use <a> tag in React.
+
+#

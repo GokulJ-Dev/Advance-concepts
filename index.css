@@ -82,5 +82,16 @@
     border: 1px solid green;
 }
 
+.link-router-style{
+  color: black;
+  text-decoration: none;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
 
 

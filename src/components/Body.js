@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import RestroCard from "./RestroCard";
 import SearchBox from "./SearchBox";
+import { RESTAURANT_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -19,9 +21,7 @@ const Body = () => {
   }, [searchText]);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(RESTAURANT_URL);
     const jsonData = await data.json();
     console.log(
       jsonData?.data?.cards[2].card?.card?.gridElements?.infoWithStyle
@@ -59,7 +59,13 @@ const Body = () => {
       </button>
       <div className="restro-card-container">
         {restaurants?.map((res) => (
-          <RestroCard key={res?.info?.id} restaurantDetails={res} />
+          <Link
+            className="link-router-style"
+            key={res?.info?.id}
+            to={"/restaurant/" + res?.info?.id}
+          >
+            <RestroCard restaurantDetails={res} />
+          </Link>
         ))}
       </div>
     </div>
