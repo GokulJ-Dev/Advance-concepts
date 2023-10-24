@@ -7,6 +7,8 @@ import About from "./src/components/About";
 import RestaurantDetails from "./src/components/RestaurantDetails";
 import Error from "./src/components/Error";
 import LoginForm from "./src/components/LoginForm";
+import AboutC from "./src/components/AboutClass";
+import RestaurantMenu from "./src/components/RestaurantMenuClass";
 
 const App = () => {
   return (
@@ -28,7 +30,15 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <AboutC
+            name="Gokul J"
+            details={{
+              id: "1234",
+              location: "Perundurai",
+            }}
+          />
+        ),
       },
       {
         path: "/restaurant/:rId",

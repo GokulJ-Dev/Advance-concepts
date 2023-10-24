@@ -50,4 +50,16 @@ My coding practices and learning advance concepts.
     React everything is a component, so when using the <Link to="/">Home<Link> , in this case we can changing the component, the page will not reload fully like using <a href="/">Home</a>
     1) Never use <a> tag in React.
 
-#
+# Class based Components
+
+    1) Extends React.Component
+    2) Have render(){} which returns some piece oj jsx
+    3) Have constructor(props) which have super(props) gives us to access props in render method
+    4) Inside constructor we can use super variables, this.state and update using this.setState({})
+    5) state can be updated using this.setState() *only* so it can trigger the re-render progress
+    6) lifecycle methods
+        - constructor()
+        - render()
+        - async componentDidMount()
+        - componentDidUpdate(prevProps, prevState)
+        - componentWillUnmount
