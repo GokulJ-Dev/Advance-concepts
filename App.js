@@ -9,6 +9,7 @@ import Error from "./src/components/Error";
 import LoginForm from "./src/components/LoginForm";
 import AboutC from "./src/components/AboutClass";
 import RestaurantMenu from "./src/components/RestaurantMenuClass";
+import Demo from "./src/components/Demo";
 
 const App = () => {
   return (
@@ -27,6 +28,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Body />,
+      },
+      {
+        path: "/demo",
+        element: <Demo />,
       },
       {
         path: "/about",

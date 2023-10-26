@@ -96,5 +96,13 @@
     width: 300px;
 }
 
+.demo-container{
+    margin-top: 20px;
+    width: 400px;
+    height: 600px;
+    background-color: yellow;
+    border: 1px black solid;
+}
+
 
 
