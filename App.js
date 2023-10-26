@@ -31,12 +31,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: (
-          <AboutC
-            name="Gokul J"
-            details={{
-              id: "1234",
-              location: "Perundurai",
-            }}
+          <About
+          // name="Gokul J"
+          // details={{
+          //   id: "1234",
+          //   location: "Perundurai",
+          // }}
           />
         ),
       },

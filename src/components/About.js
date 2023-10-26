@@ -1,9 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import SearchBox from "./SearchBox";
+import { calculateCircumference } from "../utils/methods";
 // https://api.github.com/users/GokulJ-Dev
 const About = () => {
   const [details, setDetails] = useState(null);
-  const [count, setCount] = useState(0);
-
+  const [text, setText] = useState("");
+  const [status, setStatus] = useState(false);
+  const circumference = useMemo(() => {
+    return text && calculateCircumference(text);
+  }, [text]);
+  console.log("Above Component Renders");
   useEffect(() => {
     fetchDetails();
   }, []);
@@ -21,13 +27,18 @@ const About = () => {
       <h3>{details?.login}</h3>
       <h3>{details?.id}</h3>
       <h3>{details?.node_id}</h3>
-      <h3>Count={count}</h3>
+      <SearchBox
+        searchText={text}
+        setSearchText={(value) => setText(value)}
+        type="number"
+      />
+      <h3>{circumference}</h3>
       <button
         onClick={() => {
-          setCount(count + 1);
+          setStatus(!status);
         }}
       >
-        Click Me
+        Press Me
       </button>
     </div>
   );

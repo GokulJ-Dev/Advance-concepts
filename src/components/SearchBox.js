@@ -1,10 +1,8 @@
-const SearchBox = ({ searchText, setSearchText }) => {
-
+const SearchBox = ({ searchText, setSearchText, type = "text" }) => {
   return (
     <input
       className="search-box"
-      placeholder="Search Restaurants"
-      type="text"
+      type={type}
       value={searchText}
       onChange={(event) => {
         setSearchText(event.target.value);
