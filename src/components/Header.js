@@ -22,6 +22,11 @@ const Header = () => {
               About
             </Link>
           </li>
+          <li>
+            <Link className="link-router-style" to="/teams">
+              Teams
+            </Link>
+          </li>
           <li>Contact</li>
           <li>Cart</li>
           <button

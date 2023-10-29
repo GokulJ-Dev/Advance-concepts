@@ -1,23 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { MENU_URL } from "../utils/constants";
 import { useOutlet, useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantDetails = () => {
-  const [basicDetails, setBasicDetils] = useState(null);
-
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
   const { rId } = useParams();
+  const basicDetails = useRestaurantMenu(rId);
 
-  const fetchMenu = async () => {
-    const data = await fetch(MENU_URL + rId);
-    const json = await data.json();
-    console.log(json);
-    setBasicDetils(json);
-  };
-
+  console.log("Menu Page Rendering");
   if (basicDetails == null) return <h2>Loading....!</h2>;
 
   const { info } = basicDetails?.data?.cards[0]?.card?.card;

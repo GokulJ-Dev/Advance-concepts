@@ -63,3 +63,16 @@ My coding practices and learning advance concepts.
         - async componentDidMount()
         - componentDidUpdate(prevProps, prevState)
         - componentWillUnmount
+
+# Optimisation
+
+    1) Single Responsibility function
+    2) Custom Hook - Utility function
+        - We can use hooks inside the functions also which will follow the same life cycle steps like react component
+    3) Code Splitting or Lazy Loading or On demand loading or dynamic bundling or chunking
+    4) The bundle can then be included on a webpage to load an entire app at once.
+    5) import {lazy, Suspense} from "react"
+        - lazy(()=> import("./location"))
+        - <Suspense fallBack={
+            <Jsx/>
+        }>{Lazy component} </Suspense>

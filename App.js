@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -10,6 +10,8 @@ import LoginForm from "./src/components/LoginForm";
 import AboutC from "./src/components/AboutClass";
 import RestaurantMenu from "./src/components/RestaurantMenuClass";
 import Demo from "./src/components/Demo";
+
+const Team = lazy(() => import("./src/components/Team"));
 
 const App = () => {
   return (
@@ -52,6 +54,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/login",
         element: <LoginForm />,
+      },
+      {
+        path: "/teams",
+        element: (
+          <Suspense fallback={<h3> Suspense Fallback Loading...!</h3>}>
+            <Team />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,
