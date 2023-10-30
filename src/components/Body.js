@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RestroCard from "./RestroCard";
+import RestroCard, { withPromotedLabel } from "./RestroCard";
 import SearchBox from "./SearchBox";
 import { RESTAURANT_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
@@ -8,6 +8,8 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const PromotedRestroCard = withPromotedLabel(RestroCard);
 
   useEffect(() => {
     fetchData();
@@ -64,7 +66,11 @@ const Body = () => {
             key={res?.info?.id}
             to={"/restaurant/" + res?.info?.id}
           >
-            <RestroCard restaurantDetails={res} />
+            {res?.info?.avgRating >= 4.5 ? (
+              <PromotedRestroCard restaurantDetails={res} />
+            ) : (
+              <RestroCard restaurantDetails={res} />
+            )}
           </Link>
         ))}
       </div>

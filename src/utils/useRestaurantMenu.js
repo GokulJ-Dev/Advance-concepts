@@ -9,10 +9,8 @@ const useRestaurantMenu = (rId) => {
   }, []);
 
   const fetchMenu = async () => {
-    console.log("Effect in useRestaurant menu hook called");
     const data = await fetch(MENU_URL + rId);
     const json = await data.json();
-    console.log(json);
     setBasicDetils(json);
   };
 

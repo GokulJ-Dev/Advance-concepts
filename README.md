@@ -76,3 +76,6 @@ My coding practices and learning advance concepts.
         - <Suspense fallBack={
             <Jsx/>
         }>{Lazy component} </Suspense>
+
+# HOC => Higher order Components
+     Function which Takes a component, do something/modify and returns the component from it.
