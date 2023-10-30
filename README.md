@@ -78,4 +78,20 @@ My coding practices and learning advance concepts.
         }>{Lazy component} </Suspense>
 
 # HOC => Higher order Components
+
      Function which Takes a component, do something/modify and returns the component from it.
+
+# Context or Context API'S
+
+    1) Eliminates Props Drilling
+    2) {createContext} from "react";
+           const SampleContext createContext(anything)
+    3) {useContext} from "react"
+           const data =  useContext(sampleContext);
+    4) In class based components , we cannot use useContext(), So <SampleContext.Consumer>{
+        (value)=>{
+            <JsX/>
+        }
+    } </SampleContext.Consumer>
+    5) Provide value to the context <SampleContext.Provider value={updates the anything}> </SampleContext.Provider>
+

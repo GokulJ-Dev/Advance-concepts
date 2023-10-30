@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
 
 class AboutC extends React.Component {
   constructor(props) {
@@ -16,7 +17,9 @@ class AboutC extends React.Component {
     return (
       <>
         <h1>About Page</h1>
-        <h2>{name}</h2>
+        <UserContext.Consumer>
+          {({ userDetails }) => <h2>{userDetails}</h2>}
+        </UserContext.Consumer>
         <h2>{location}</h2>
         <h2>{this.state.count}</h2>
         <h2>{this.state.maxValue}</h2>

@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [status, setStatus] = useState("Login");
+  const data = useContext(UserContext);
+  console.log(" IN HEADER CONTEXT DATA IS", data);
   return (
     <div className="header">
       <div className="logo-container">
@@ -11,6 +14,7 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li>{data?.userDetails}</li>
           <li>
             {" "}
             <Link className="link-router-style" to="/">

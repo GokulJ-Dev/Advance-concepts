@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import DishList from "./DishList";
+import UserContext from "../utils/UserContext";
 
 const Accordian = ({ data, show, setShow }) => {
+  const { userDetails } = useContext(UserContext);
   return (
     <div>
       <div

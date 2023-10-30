@@ -10,15 +10,18 @@ import LoginForm from "./src/components/LoginForm";
 import AboutC from "./src/components/AboutClass";
 import RestaurantMenu from "./src/components/RestaurantMenuClass";
 import Demo from "./src/components/Demo";
+import UserContext from "./src/utils/UserContext";
 
 const Team = lazy(() => import("./src/components/Team"));
 
 const App = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ userDetails: "Virat Kohli" }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
@@ -38,12 +41,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: (
-          <About
-          // name="Gokul J"
-          // details={{
-          //   id: "1234",
-          //   location: "Perundurai",
-          // }}
+          <AboutC
+            name="Gokul J"
+            details={{
+              id: "1234",
+              location: "Perundurai",
+            }}
           />
         ),
       },
